@@ -23,79 +23,41 @@
             static-body
         ></a-plane>
 
-        <a-assets>
-            <img id="brick" src="../brick.jpg" alt="">
-            <img id="metal" src="../metal.jpg" alt="">
-        </a-assets>
-
         <a-sphere
-            position="0 5 2"
+            position="0 5 0"
             color="skyblue"
-            radius="0.5"
+            radius="0.7"
             dynamic-body
             id="ball"
             class="clickable"
-            material="src:#metal"
         ></a-sphere>
 
-        <a-box
-            position="-2 1 -2"
-            width="2"
-            height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
-            class="target"
-        ></a-box>
         <a-box
             position="0 1 -2"
             width="2"
             height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
+            depth="0.2"
+            dynamic-body 
             class="target"
         ></a-box>
         <a-box
-            position="2 1 -2"
+            position="0 1 -3"
             width="2"
             height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
-            class="target"
+            depth="0.2"
+            dynamic-body 
         ></a-box>
         <a-box
-            position="-1 3 -2"
+            position="0 1 -4"
             width="2"
             height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
-            class="target"
-        ></a-box>
-        <a-box
-            position="1 3 -2"
-            width="2"
-            height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
-            class="target"
-        ></a-box>
-        <a-box
-            position="0 5 -2"
-            width="2"
-            height="2"
-            depth="2"
-            material="src:#brick"
-            dynamic-body
-            class="target"
+            depth="0.2"
+            dynamic-body 
         ></a-box>
 
         <a-entity
-            position="0 1 5"
-            rotation="0 0 0"
+            position="5 0 5"
+            rotation="0 45 0"
         >
             <a-camera id="camera"></a-camera>
         </a-entity>
