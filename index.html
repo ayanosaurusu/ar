@@ -10,13 +10,16 @@
 
 <body>
     <a-scene embedded arjs="sourceType: webcam">
-        <img id="brick" src="../brick.jpg" alt="">
+
+        <a-assets>
+            <img id="sun" src="../assets/images/sun.jpg" alt="">           
+        </a-assets>
 
         <a-marker preset="hiro">
             <a-sphere
                 position="0 0.5 0"
                 radius="1"
-                material="src:#brick"
+                material="src:#sun"
                 animation="
                     property:rotation;
                     to :0 360 0;
