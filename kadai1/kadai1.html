@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.4/dist/aframe-physics-system.min.js"></script>
+</head>
+<body>
+    <a-scene
+        physics="gravity:-9.8"
+        cursor="rayOrigin: mouse"
+        raycaster="objects: .clickable"
+    >
+        <a-entity
+            position="0 10 25"
+            rotation="0 0 0"
+        >
+            <a-camera id="camera"></a-camera>
+        </a-entity>
+    
+        <a-sky color="darkblue"></a-sky>
+
+        <a-plane
+            position="0 -5 -10"
+            rotation="-87 0 0"
+            width="30"
+            height="30"
+            color="darkgreen"
+            static-body
+        ></a-plane>
+
+        <a-assets>
+            <img id="wood" src="../assets/images/wood.jpg" alt="">
+            <img id="wood2" src="../assets/images/wood2.jpg" alt="">
+            <img id="apple" src="../assets/images/apple.jpg" alt="">
+            <img id="sun" src="../assets/images/sun.jpg" alt="">
+            <img id="sui" src="../assets/images/sui.jpg" alt="">
+            <img id="kin" src="../assets/images/kin.jpg" alt="">
+            <img id="earth" src="../assets/images/earth.jpg" alt="">
+            <img id="ka" src="../assets/images/ka.jpg" alt="">
+            <img id="moku" src="../assets/images/moku.jpg" alt="">
+            <img id="do" src="../assets/images/do.jpg" alt="">
+            <img id="tennou" src="../assets/images/tennou.jpg" alt="">
+            <img id="kaiou" src="../assets/images/kaiou.jpg" alt="">
+            
+        </a-assets>
+
+        //太陽系
+        //太陽
+        <a-sphere
+            position="0 20 -45"
+            radius="20"
+            material="src:#sun"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:50000;
+            "
+        ></a-sphere>
+        //水星
+        <a-sphere
+            position="15 8 -20"
+            radius="4"
+            material="src:#sui"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:45000;
+            "
+        ></a-sphere>
+        //地球
+        <a-sphere
+            position="15 6 -8"
+            radius="3"
+            material="src:#earth"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:35000;
+            "
+        ></a-sphere>
+        //木星
+        <a-sphere
+            position="12 4 2"
+            radius="2"
+            material="src:#moku"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:25000;
+            "
+        ></a-sphere>
+        //天王星
+        <a-sphere
+            position="7 2 11"
+            radius="1"
+            material="src:#tennou"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:15000;
+            "
+        ></a-sphere>
+        //金星
+        <a-sphere
+            position="-15 8 -15"
+            radius="4"
+            material="src:#kin"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:40000;
+            "
+        ></a-sphere>
+        //火星
+        <a-sphere
+            position="-14 5 -3"
+            radius="3"
+            material="src:#ka"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:30000;
+            "
+        ></a-sphere>
+        //土星
+        <a-sphere
+            position="-9 3 6"
+            radius="2"
+            material="src:#do"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:20000;
+            "
+        ></a-sphere>
+        //海王星
+        <a-sphere
+            position="-4 2 13"
+            radius="1"
+            material="src:#kaiou"
+            static-body
+            animation="
+                property:rotation;
+                to :0 360 0;
+                loop:true;
+                easing:linear;
+                dur:10000;
+            "
+        ></a-sphere>
+
+        //浮遊果樹島
+        //土台
+        <a-cylinder
+            position="0 5 -10"
+            radius="5"
+            material="src:#wood"
+            static-body
+            animation="
+                property:position;
+                to:0 6 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cylinder>
+        //木下
+        <a-cone
+            position="0 10 -10"
+            radius-top="2"
+            radius-bottom="5"
+            height="10"
+            material="src:#wood"
+            static-body
+            animation="
+                property:position;
+                to:0 11 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        //木上
+        <a-cone
+            rotation="180 0 0"
+            position="0 10 -10"
+            radius-top="-1"
+            radius-bottom="5"
+            height="10"
+            material="src:#wood"
+            static-body
+            animation="
+                property:position;
+                to:0 11 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        //葉っぱ１段目
+        <a-sphere
+            position="0 20 -10"
+            radius="4"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:0 21 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-5 16 -10"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-5 17 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="5 16 -10"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:5 17 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="0 16 -5"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:0 17 -5;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="0 16 -15"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:0 17 -15;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="4 16 -6"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:4 17 -6;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-4 16 -6"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-4 17 -6;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="4 16 -14"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:4 17 -14;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-4 16 -14"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-4 17 -14;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+
+        //葉っぱ２段目
+        <a-sphere
+            position="2 20 -14"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:2 21 -14;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-2 20 -14"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-2 21 -14;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="2 20 -6"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:2 21 -6;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-2 20 -6"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-2 21 -6;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="4 20 -8"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:4 21 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-4 20 -8"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-4 21 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="4 20 -12"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:4 21 -12;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-4 20 -12"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-4 21 -12;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+
+        //葉っぱ３段目
+        <a-sphere
+            position="2 24 -8"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:2 25 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-2 24 -8"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-2 25 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="2 24 -12"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:2 25 -12;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        <a-sphere
+            position="-2 24 -12"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:-2 25 -12;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+
+        //葉っぱ４段目
+        <a-sphere
+            position="0 28 -10"
+            radius="3"
+            material="src:#apple"
+            static-body
+            class="clickable"
+            animation="
+                property:position;
+                to:0 29 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-sphere>
+        
+        //根っこ
+        <a-cone
+            rotation="180 0 0"
+            position="0 1 -10"
+            radius-bottom="3"
+            height="8"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:0 2 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        <a-cone
+            rotation="180 0 0"
+            position="2 2 -10"
+            radius-bottom="3"
+            height="5"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:2 3 -10;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        <a-cone
+            rotation="180 0 0"
+            position="-2 2 -8"
+            radius-bottom="2"
+            height="6"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:-2 3 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        <a-cone
+            rotation="180 0 0"
+            position="-2 1 -12"
+            radius-bottom="2"
+            height="8"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:-2 2 -12;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        <a-cone
+            rotation="180 0 0"
+            position="1.4 1 -11"
+            radius-bottom="3"
+            height="10"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:1.4 2 -11;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+        <a-cone
+            rotation="180 0 0"
+            position="0 2 -8"
+            radius-bottom="2"
+            height="6"
+            material="src:#wood2"
+            static-body
+            animation="
+                property:position;
+                to:0 3 -8;
+                loop:true;
+                dir:alternate;
+                easing:easeInOutSine;
+                dur:3000;
+            "
+        ></a-cone>
+    </a-scene>
+
+    <script>
+        const leaves = document.querySelectorAll(".clickable");
+
+        leaves.forEach(leaf => {
+            leaf.addEventListener("click", () => {
+
+                //ここのstaticからdynamicにクリック時に切り替えてもぎ取るような動作の
+                // やり方がわからなかったので、AIを使用しました。
+                leaf.removeAttribute("animation");
+                leaf.removeAttribute("static-body");
+
+                leaf.setAttribute(
+                    "dynamic-body",
+                    "mass:10; linearDamping:0"
+                );
+
+                setTimeout(() => {
+                    leaf.body.velocity.set(0, -10, 0);
+                    leaf.body.angularVelocity.set(0, 0, 0);
+                }, 50);
+            });
+        });
+    </script>
+    
+</body>
+</html>
